@@ -28,10 +28,11 @@ public class CreateActivity extends AppCompatActivity {
         binding = ActivityCreateBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.imageView2.setOnClickListener(new View.OnClickListener() {
+        binding.toMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CreateActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }

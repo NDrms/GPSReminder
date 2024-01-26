@@ -32,11 +32,11 @@
         app:navGraph="@navigation/mobile_navigation2" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="50dp"
+        android:id="@+id/toMain"
+        android:layout_width="49dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/nav_host_fragment_activity_create"
         app:srcCompat="@drawable/ic_home_black_24dp" />
