@@ -10,8 +10,10 @@ import com.example.gpsreminder.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
@@ -31,8 +33,7 @@ public class CreateActivity extends AppCompatActivity {
         binding.toMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CreateActivity.this, MainActivity.class);
-                startActivity(intent);
+                CreateActivity.super.onBackPressed();
             }
         });
     }
