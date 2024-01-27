@@ -22,4 +22,9 @@
         android:name="com.example.gpsreminder.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.gpsreminder.ui.account.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>
