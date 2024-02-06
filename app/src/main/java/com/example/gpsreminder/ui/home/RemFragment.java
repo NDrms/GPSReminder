@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.gpsreminder.databinding.FragmentHomeBinding;
+import com.example.gpsreminder.databinding.FragmentRemindsBinding;
 
-public class HomeFragment extends Fragment {
+public class RemFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentRemindsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentRemindsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textHome;
