@@ -33,6 +33,7 @@
     <string name="sync_title">Sync Email periodically</string>
     <string name="attachment_title">Download incoming attachments</string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="menu_account">Account</string>
     <string name="menu_home">Reminds</string>
     <string name="menu_gallery">Premium</string>
     <string name="menu_slideshow">Info</string>

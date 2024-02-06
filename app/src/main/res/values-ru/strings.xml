@@ -27,4 +27,5 @@
     <string name="attachment_title">" Загружать входящие вложения"</string>
     <string name="attachment_summary_on">Автоматически загружать вложения для входящих писем</string>
     <string name="attachment_summary_off">"Загружайте вложения только по запросу вручную "</string>
+    <string name="menu_account">Аккаунт</string>
 </resources>
