@@ -39,6 +39,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/nav_view"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_home_black_24dp" />
+        app:srcCompat="@drawable/android_home" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
