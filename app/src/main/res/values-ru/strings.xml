@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_drawer_open">Открыть навигацию</string>
+    <string name="navigation_drawer_close">Закрыть навигацию</string>
+    <string name="nav_header_desc">Панель навигации</string>
+    <string name="action_settings">Настройки</string>
+    <string name="action_help">Помощь</string>
+    <string name="menu_home">Напоминания</string>
+    <string name="menu_gallery">Премиум</string>
+    <string name="menu_slideshow">Информация</string>
+    <string name="menu_acount">Аккаунт</string>
+    <string name="title_activity_create">Создание Напоминания</string>
+    <string name="title_home">GPS + Время</string>
+    <string name="title_notifications">По времени</string>
+    <string name="prompt_password">Пароль</string>
+    <string name="action_sign_in">Войти или зарегистрироваться</string>
+    <string name="action_sign_in_short">Войти</string>
+    <string name="welcome">Здравствуйте!</string>
+    <string name="invalid_username">Не верный логин</string>
+    <string name="invalid_password">Пароль должен состоять из >5 символов</string>
+    <string name="login_failed">Ошибка входа</string>
+    <string name="messages_header">Сообщения</string>
+    <string name="sync_header">Синхронизация</string>
+    <string name="signature_title">Ваша подпись</string>
+    <string name="reply_title">Стандартные ответы</string>
+    <string name="sync_title">Периодическая синхронизация с Email</string>
+    <string name="attachment_title">" Загружать входящие вложения"</string>
+    <string name="attachment_summary_on">Автоматически загружать вложения для входящих писем</string>
+    <string name="attachment_summary_off">"Загружайте вложения только по запросу вручную "</string>
+</resources>
