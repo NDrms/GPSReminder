@@ -15,6 +15,7 @@
             android:title="@string/menu_gallery" />
         <item
             android:id="@+id/nav_account"
+            android:icon="@drawable/ic_menu_account"
             android:title="@string/menu_acount" />
         <item
             android:id="@+id/nav_slideshow"
