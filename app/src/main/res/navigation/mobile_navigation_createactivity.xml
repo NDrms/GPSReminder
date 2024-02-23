@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.gpsreminder.activityCreate.ui.home.HomeFragment"
+        android:name="com.example.gpsreminder.activityCreate.ui.combo.ComboFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_combo_reminds" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.gpsreminder.activityCreate.ui.dashboard.DashboardFragment"
+        android:name="com.example.gpsreminder.activityCreate.ui.GPS.GPSFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_gps_reminds" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.gpsreminder.activityCreate.ui.notifications.NotificationsFragment"
+        android:name="com.example.gpsreminder.activityCreate.ui.time.TimeFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_time_reminds" />
 </navigation>

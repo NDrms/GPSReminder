@@ -32,4 +32,5 @@
     <string name="timeTxt">Время</string>
     <string name="radiusTxt">Радиус</string>
     <string name="doneTxt">Готово</string>
+    <string name="nameTxt">Название</string>
 </resources>

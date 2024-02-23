@@ -1,36 +1,35 @@
-package com.example.gpsreminder.activityCreate.ui.home;
+package com.example.gpsreminder.activityCreate.ui.time;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.gpsreminder.databinding.FragmentHomeBinding;
+import com.example.gpsreminder.databinding.*;
 
-public class HomeFragment extends Fragment {
+public class TimeFragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentTimeRemindsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        TimeViewModel timeViewModel =
+                new ViewModelProvider(this).get(TimeViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentTimeRemindsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        binding.timeTxt.setOnClickListener(new View.OnClickListener() {
+        binding.time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Toast.makeText(getContext(), "Сменить время", Toast.LENGTH_SHORT).show();
             }
         });
 
-        //final TextView textView = binding.textHome;
-        //homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

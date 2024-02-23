@@ -1,16 +1,16 @@
-package com.example.gpsreminder.activityCreate.ui.home;
+package com.example.gpsreminder.activityCreate.ui.time;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class HomeViewModel extends ViewModel {
+public class TimeViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
-    public HomeViewModel() {
+    public TimeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("Это главный фрагмент");
+        mText.setValue("This is notifications fragment");
     }
 
     public LiveData<String> getText() {

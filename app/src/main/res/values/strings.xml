@@ -10,6 +10,7 @@
     <string name="radiusTxt">Radius</string>
     <string name="timeTxt">Time</string>
     <string name="doneTxt">Done</string>
+    <string name="nameTxt">Name</string>
 
     <string name="menu_acount">Account</string>
     <string name="title_activity_create">Create Remind</string>
@@ -45,5 +46,4 @@
     <string name="title_notifications">Time</string>
     <string name="attachment_summary_on">"Automatically download attachments for incoming emails"</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
