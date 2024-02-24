@@ -22,6 +22,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.gpsreminder.R;
 import com.example.gpsreminder.databinding.*;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 
 public class ComboFragment extends Fragment {
 
@@ -55,7 +57,8 @@ public class ComboFragment extends Fragment {
         binding.createComdoType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String testToast = "Напоминание " + binding.nameText.getText() + ". \n Установлено на время" + binding.time.getText() + ".";
+                String testToast = "Напоминание " + binding.Name.getText() + ". \n Установлено на время " + binding.time.getText() + ".";
+                Snackbar.make(container,testToast, BaseTransientBottomBar.LENGTH_SHORT).show();
             }
 
         });
