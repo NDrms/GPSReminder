@@ -46,4 +46,6 @@
     <string name="title_notifications">Time</string>
     <string name="attachment_summary_on">"Automatically download attachments for incoming emails"</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="fragment_account">Account</string>
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>

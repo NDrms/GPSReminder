@@ -1,4 +1,4 @@
-package com.example.gpsreminder.ui.account.ui.login;
+package com.example.gpsreminder.ui.login.ui.login;
 
 import android.util.Patterns;
 
@@ -6,9 +6,9 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.gpsreminder.ui.account.data.LoginRepository;
-import com.example.gpsreminder.ui.account.data.Result;
-import com.example.gpsreminder.ui.account.data.model.LoggedInUser;
+import com.example.gpsreminder.ui.login.data.LoginRepository;
+import com.example.gpsreminder.ui.login.data.Result;
+import com.example.gpsreminder.ui.login.data.model.LoggedInUser;
 
 
 public class LoginViewModel extends ViewModel {

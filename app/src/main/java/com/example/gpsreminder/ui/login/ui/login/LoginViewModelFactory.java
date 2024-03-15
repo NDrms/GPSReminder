@@ -1,11 +1,11 @@
-package com.example.gpsreminder.ui.account.ui.login;
+package com.example.gpsreminder.ui.login.ui.login;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
 
-import com.example.gpsreminder.ui.account.data.LoginDataSource;
-import com.example.gpsreminder.ui.account.data.LoginRepository;
+import com.example.gpsreminder.ui.login.data.LoginDataSource;
+import com.example.gpsreminder.ui.login.data.LoginRepository;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

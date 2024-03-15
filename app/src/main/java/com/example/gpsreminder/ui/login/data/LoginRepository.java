@@ -1,6 +1,6 @@
-package com.example.gpsreminder.ui.account.data;
+package com.example.gpsreminder.ui.login.data;
 
-import com.example.gpsreminder.ui.account.data.model.LoggedInUser;
+import com.example.gpsreminder.ui.login.data.model.LoggedInUser;
 
 /**
  * Class that requests authentication and user information from the remote data source and

@@ -1,4 +1,4 @@
-package  com.example.gpsreminder.ui.account.ui.login;
+package  com.example.gpsreminder.ui.login.ui.login;
 
 /**
  * Class exposing authenticated user details to the UI.
