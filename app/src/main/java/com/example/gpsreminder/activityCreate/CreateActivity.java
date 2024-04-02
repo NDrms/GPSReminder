@@ -25,12 +25,6 @@ public class CreateActivity extends AppCompatActivity {
         binding = ActivityCreateBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.toMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CreateActivity.super.onBackPressed();
-            }
-        });
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.

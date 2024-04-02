@@ -19,8 +19,11 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavHostController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.gpsreminder.R;
+import com.example.gpsreminder.activityCreate.ui.time.TimeFragment;
 import com.example.gpsreminder.databinding.*;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
@@ -39,7 +42,7 @@ public class ComboFragment extends Fragment {
         binding.timeTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+
             }
         });
 
@@ -57,8 +60,9 @@ public class ComboFragment extends Fragment {
         binding.createComdoType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String testToast = "Напоминание " + binding.Name.getText() + ". \n Установлено на время " + binding.time.getText() + ".";
-                Snackbar.make(container,testToast, BaseTransientBottomBar.LENGTH_SHORT).show();
+                if (binding.Name.getText().toString() != binding.time.getText().toString()) {
+                    Snackbar.make(container, "Напоминание " + binding.Name.getText() + ". \n Установлено на время " + binding.time.getText() + ".", BaseTransientBottomBar.LENGTH_SHORT).show();
+                }
             }
 
         });

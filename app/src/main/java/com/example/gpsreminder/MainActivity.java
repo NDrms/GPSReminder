@@ -1,5 +1,6 @@
 package com.example.gpsreminder;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         binder = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binder.getRoot());
 
+
         setSupportActionBar(binder.appBarMain.toolbar);
         binder.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,9 +54,11 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
         //Data binding тест
         RemindEx remindEx = new RemindEx("Тест", "10:00");
+        
 
-        ActivityMainBinding DataBinding = DataBindingUtil.setContentView(this,R.layout.activity_main);
-        DataBinding.setRem(remindEx);
+
+        //ActivityMainBinding activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());//DataBindingUtil.setContentView(this,R.layout.activity_main);
+        //activityMainBinding.setRem(RemindEx);
     }
 
 
