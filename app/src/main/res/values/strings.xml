@@ -11,6 +11,9 @@
     <string name="timeTxt">Time</string>
     <string name="doneTxt">Done</string>
     <string name="nameTxt">Name</string>
+    <string name="fill_fields">Please fill in all fields</string>
+    <string name="reminder">Reminder "</string>
+    <string name="was_sch">" was scheduled for </string>
 
     <string name="menu_acount">Account</string>
     <string name="title_activity_create">Create Remind</string>

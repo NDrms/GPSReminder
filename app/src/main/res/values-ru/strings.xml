@@ -9,6 +9,7 @@
     <string name="menu_home">Напоминания</string>
     <string name="menu_gallery">Премиум</string>
     <string name="menu_slideshow">Информация</string>
+    <string name="fill_fields">Пожалуйста заполните все поля</string>
     <string name="menu_acount">Аккаунт</string>
     <string name="title_activity_create">Создание Напоминания</string>
     <string name="title_home">GPS + Время</string>
@@ -34,4 +35,6 @@
     <string name="doneTxt">Готово</string>
     <string name="nameTxt">Название</string>
     <string name="fragment_account">Аккаунт</string>
+    <string name="reminder">Напоминание "</string>
+    <string name="was_sch">" было назначено на </string>
 </resources>

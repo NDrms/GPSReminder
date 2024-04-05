@@ -14,6 +14,8 @@ import com.example.gpsreminder.databinding.ActivityCreateBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CreateActivity extends AppCompatActivity {
+    public static final int NOTIFY_ID = 101;
+    public static String CHANNEL_ID = "GPSReminder channel";
 
     private ActivityCreateBinding binding;
 
