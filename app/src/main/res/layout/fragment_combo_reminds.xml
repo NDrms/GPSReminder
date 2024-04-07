@@ -66,11 +66,11 @@
         android:id="@+id/timeTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
         android:text="@string/timeTxt"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/time"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/radTxt"
+        app:layout_constraintStart_toStartOf="@+id/radTxt"
         app:layout_constraintTop_toBottomOf="@+id/radTxt" />
 
     <Button
@@ -82,18 +82,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/time"
-        android:layout_width="89dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="32dp"
-        android:text="00:00"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rad" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
