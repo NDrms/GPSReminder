@@ -5,9 +5,9 @@
     <uses-feature
         android:name="android.software.leanback"
         android:required="false" />
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
@@ -21,15 +21,19 @@
         android:theme="@style/Theme.GPSReminder"
         tools:targetApi="31">
         <activity
+            android:name=".TimePick"
+            android:label="Установка времени"
+            android:exported="false" />
+        <activity
             android:name=".activityCreate.CreateActivity"
-            android:screenOrientation="portrait"
             android:exported="false"
-            android:label="@string/title_activity_create" />
+            android:label="@string/title_activity_create"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"
             android:exported="true"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.GPSReminder.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

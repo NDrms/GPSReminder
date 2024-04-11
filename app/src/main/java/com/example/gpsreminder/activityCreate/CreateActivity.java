@@ -1,19 +1,21 @@
 package com.example.gpsreminder.activityCreate;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.DatePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.gpsreminder.R;
-import com.example.gpsreminder.activityCreate.ui.combo.ComboFragment;
 import com.example.gpsreminder.databinding.ActivityCreateBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -44,11 +46,37 @@ public class CreateActivity extends AppCompatActivity {
         binding.timeChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment newFragment = new ComboFragment();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.action_comboFragment_to_getTime, newFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                final DatePickerDialog datePickerDialog = new DatePickerDialog(CreateActivity.this);
+                final TimePickerDialog timePickerDialog = new TimePickerDialog(CreateActivity.this);
+
+                // Set the initial date and time
+                datePickerDialog.getDatePicker().updateDate(2023, 11, 15);
+                timePickerDialog.getTimePicker().setCurrentHour(10);
+                timePickerDialog.getTimePicker().setCurrentMinute(30);
+
+                // Set the callback to be called when the user selects a date
+                datePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        // Do something with the selected date
+                        Log.d(TAG, "Selected date: " + year + "-" + month + "-" + dayOfMonth);
+
+                        // Show the time picker dialog
+                        timePickerDialog.show();
+                    }
+                });
+
+                // Set the callback to be called when the user selects a time
+                timePickerDialog.setOnTimeSetListener(new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        // Do something with the selected time
+                        Log.d(TAG, "Selected time: " + hourOfDay + ":" + minute);
+                    }
+                });
+
+                // Show the date picker dialog
+                datePickerDialog.show();
             }
         });
     }
