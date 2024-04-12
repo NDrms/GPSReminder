@@ -9,7 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.gpsreminder.R;
 import com.example.gpsreminder.databinding.*;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 
 public class GPSFragment extends Fragment {
 
@@ -21,6 +24,17 @@ public class GPSFragment extends Fragment {
                 new ViewModelProvider(this).get(GPSViewModel.class);
 
         binding = FragmentGpsRemindsBinding.inflate(inflater, container, false);
+        binding.CreateGPSType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //String Created = R.string.reminder  + binding.Name.getText().toString() + R.string.was_sch + binding.time.getText().toString();
+                String Created = "Напоминание \"" + binding.Name.getText().toString() + "\" успешно создано";
+                if (!binding.Name.getText().toString().isEmpty() && !binding.rad.getText().toString().isEmpty()) {
+                    Snackbar.make(container, Created, BaseTransientBottomBar.LENGTH_SHORT).show();
+                } else Snackbar.make (container, R.string.fill_fields,BaseTransientBottomBar.LENGTH_SHORT).show();
+            }
+
+        });
         View root = binding.getRoot();
         return root;
     }

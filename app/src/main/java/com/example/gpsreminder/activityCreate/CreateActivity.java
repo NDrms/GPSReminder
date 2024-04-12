@@ -1,13 +1,6 @@
 package com.example.gpsreminder.activityCreate;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
-
-import android.app.DatePickerDialog;
-import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.DatePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -43,41 +36,41 @@ public class CreateActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_create);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-        binding.timeChange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final DatePickerDialog datePickerDialog = new DatePickerDialog(CreateActivity.this);
-                final TimePickerDialog timePickerDialog = new TimePickerDialog(CreateActivity.this);
-
-                // Set the initial date and time
-                datePickerDialog.getDatePicker().updateDate(2023, 11, 15);
-                timePickerDialog.getTimePicker().setCurrentHour(10);
-                timePickerDialog.getTimePicker().setCurrentMinute(30);
-
-                // Set the callback to be called when the user selects a date
-                datePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        // Do something with the selected date
-                        Log.d(TAG, "Selected date: " + year + "-" + month + "-" + dayOfMonth);
-
-                        // Show the time picker dialog
-                        timePickerDialog.show();
-                    }
-                });
-
-                // Set the callback to be called when the user selects a time
-                timePickerDialog.setOnTimeSetListener(new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        // Do something with the selected time
-                        Log.d(TAG, "Selected time: " + hourOfDay + ":" + minute);
-                    }
-                });
-
-                // Show the date picker dialog
-                datePickerDialog.show();
-            }
-        });
+//        binding.timeChange.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                final DatePickerDialog datePickerDialog = new DatePickerDialog(CreateActivity.this);
+//                final TimePickerDialog timePickerDialog = new TimePickerDialog(CreateActivity.this);
+//
+//                // Set the initial date and time
+//                datePickerDialog.getDatePicker().updateDate(2023, 11, 15);
+//                timePickerDialog.getTimePicker().setCurrentHour(10);
+//                timePickerDialog.getTimePicker().setCurrentMinute(30);
+//
+//                // Set the callback to be called when the user selects a date
+//                datePickerDialog.setOnDateSetListener(new DatePickerDialog.OnDateSetListener() {
+//                    @Override
+//                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+//                        // Do something with the selected date
+//                        Log.d(TAG, "Selected date: " + year + "-" + month + "-" + dayOfMonth);
+//
+//                        // Show the time picker dialog
+//                        timePickerDialog.show();
+//                    }
+//                });
+//
+//                // Set the callback to be called when the user selects a time
+//                timePickerDialog.setOnTimeSetListener(new TimePickerDialog.OnTimeSetListener() {
+//                    @Override
+//                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+//                        // Do something with the selected time
+//                        Log.d(TAG, "Selected time: " + hourOfDay + ":" + minute);
+//                    }
+//                });
+//
+//                // Show the date picker dialog
+//                datePickerDialog.show();
+//            }
+//        });
     }
 }

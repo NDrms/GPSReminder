@@ -3,38 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation2"
-    app:startDestination="@id/comboFragment">
+    app:startDestination="@id/navigation_home">
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.gpsreminder.activityCreate.ui.GPS.GPSFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_gps_reminds" >
-        <action
-            android:id="@+id/action_navigation_dashboard_to_getTime"
-            app:destination="@id/getTime" />
-    </fragment>
+        tools:layout="@layout/fragment_gps_reminds" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.gpsreminder.activityCreate.ui.time.TimeFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_time_reminds" >
-        <action
-            android:id="@+id/action_navigation_notifications_to_getTime"
-            app:destination="@id/getTime" />
-    </fragment>
+        tools:layout="@layout/fragment_time_reminds" />
     <fragment
-        android:id="@+id/getTime"
-        android:name="com.example.gpsreminder.activityCreate.ui.getTime.GetTime"
-        android:label="GetTime" />
-    <fragment
-        android:id="@+id/comboFragment"
+        android:id="@+id/navigation_home"
         android:name="com.example.gpsreminder.activityCreate.ui.combo.ComboFragment"
-        android:label="fragment_combo_reminds"
-        tools:layout="@layout/fragment_combo_reminds" >
-        <action
-            android:id="@+id/action_comboFragment_to_getTime"
-            app:destination="@id/getTime" />
-    </fragment>
+        android:label="Время + GPS"
+        tools:layout="@layout/fragment_combo_reminds" />
 </navigation>
