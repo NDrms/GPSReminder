@@ -19,8 +19,6 @@ public class ComboFragment extends Fragment {
 
     private FragmentComboRemindsBinding binding;
 
-    private static final int NOTIFY_ID = 101;
-
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
