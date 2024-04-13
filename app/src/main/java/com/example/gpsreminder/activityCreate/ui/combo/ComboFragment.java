@@ -1,7 +1,5 @@
 package com.example.gpsreminder.activityCreate.ui.combo;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,9 +8,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.core.app.ActivityCompat;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.gpsreminder.R;
@@ -36,11 +31,10 @@ public class ComboFragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
             @Override
             public void onClick(View v) {
-                //String Created = R.string.reminder  + binding.Name.getText().toString() + R.string.was_sch + binding.time.getText().toString();
-                String Created = "Напоминание \"" + binding.Name.getText().toString() + "\" успешно создано";
+//                String Created = "Напоминание \"" + binding.Name.getText().toString() + "\" успешно создано";
                 if (!binding.Name.getText().toString().isEmpty() && !binding.rad.getText().toString().isEmpty()) {
                     Snackbar.make(container, "Успешно", BaseTransientBottomBar.LENGTH_SHORT).show();
-//                    NotificationCompat.Builder builder = new NotificationCompat.Builder(requireContext(), "mychannel")
+/*                    NotificationCompat.Builder builder = new NotificationCompat.Builder(requireContext(), "mychannel")
 //                            .setSmallIcon(R.drawable.ic_menu_camera)
 //                            .setContentTitle("Напоминание создано")
 //                            .setContentText(Created)
@@ -49,7 +43,6 @@ public class ComboFragment extends Fragment {
 //                    NotificationManagerCompat notificationManager =
 //                            NotificationManagerCompat.from(requireContext());
 //                    if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-//                        // TODO: Consider calling
 //                        //    ActivityCompat#requestPermissions
 //                        // here to request the missing permissions, and then overriding
 //                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
@@ -60,7 +53,7 @@ public class ComboFragment extends Fragment {
 //
 //                        return;
 //                    }
-//                    notificationManager.notify(NOTIFY_ID, builder.build());
+//                    notificationManager.notify(NOTIFY_ID, builder.build());*/
                 } else
                     Snackbar.make(container, R.string.fill_fields, BaseTransientBottomBar.LENGTH_SHORT).show();
             }
