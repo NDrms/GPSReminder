@@ -18,10 +18,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GPSReminder"
         tools:targetApi="31">
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true"></service>
+
         <activity
             android:name=".TimePick"
-            android:label="Установка времени"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Установка времени" />
         <activity
             android:name=".activityCreate.CreateActivity"
             android:exported="false"
