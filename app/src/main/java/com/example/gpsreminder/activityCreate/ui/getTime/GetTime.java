@@ -1,8 +1,8 @@
 package com.example.gpsreminder.activityCreate.ui.getTime;
 
 import static androidx.navigation.Navigation.findNavController;
-import static com.example.gpsreminder.activityCreate.ui.combo.ComboFragment.forCreateComboH;
-import static com.example.gpsreminder.activityCreate.ui.combo.ComboFragment.forCreateComboM;
+import static com.example.gpsreminder.activityCreate.ui.combo.ComboFragment.timeH;
+import static com.example.gpsreminder.activityCreate.ui.combo.ComboFragment.timeM;
 
 import android.os.Bundle;
 
@@ -41,8 +41,8 @@ public class GetTime extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         binding.button.setOnClickListener(v -> {
-            forCreateComboH = binding.timePicker.getHour();
-            forCreateComboM = binding.timePicker.getMinute();
+            timeH = binding.timePicker.getHour();
+            timeM = binding.timePicker.getMinute();
             findNavController(requireView()).navigate(R.id.action_getTime_to_navigation_home);
         });
     }

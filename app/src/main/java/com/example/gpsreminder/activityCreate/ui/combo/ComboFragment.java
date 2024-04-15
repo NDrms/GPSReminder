@@ -3,30 +3,25 @@ package com.example.gpsreminder.activityCreate.ui.combo;
 import static androidx.navigation.Navigation.findNavController;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.app.Dialog;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
-import com.example.gpsreminder.MyService;
 import com.example.gpsreminder.R;
 import com.example.gpsreminder.databinding.FragmentComboRemindsBinding;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.Objects;
-
 public class ComboFragment extends Fragment {
 
-    public static int forCreateComboH;
-    public static int forCreateComboM;
+    public static int timeH;
+    public static int timeM;
 
     private FragmentComboRemindsBinding binding;
 
@@ -37,15 +32,15 @@ public class ComboFragment extends Fragment {
 
         binding = FragmentComboRemindsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        if (!String.valueOf(forCreateComboH).isEmpty()&&!String.valueOf(forCreateComboM).isEmpty()){
+        if (!String.valueOf(timeH).isEmpty()&&!String.valueOf(timeM).isEmpty()){
             String a;
             String b;
-            if (forCreateComboH<10){
-                a = "0"+forCreateComboH;
-            } else a = forCreateComboH+"";
-            if (forCreateComboM<10){
-                b = "0"+forCreateComboM;
-            } else b = forCreateComboM+"";
+            if (timeH <10){
+                a = "0"+ timeH;
+            } else a = timeH +"";
+            if (timeM <10){
+                b = "0"+ timeM;
+            } else b = timeM +"";
             binding.Time.setText(a+":"+b);
         }
         binding.createComboType.setOnClickListener(new View.OnClickListener() {
@@ -54,10 +49,6 @@ public class ComboFragment extends Fragment {
             public void onClick(View v) {
                 if (!binding.Name.getText().toString().isEmpty() && !binding.rad.getText().toString().isEmpty()) {
                     Snackbar.make(container, "Успешно", BaseTransientBottomBar.LENGTH_SHORT).show();
-                    Intent serviceIntent = new Intent(getContext(), MyService.class);
-                    serviceIntent.putExtra("hour", forCreateComboH); // Замените "a" на нужное вам значение часов
-                    serviceIntent.putExtra("minute", forCreateComboM); // Замените "b" на нужное вам значение минут
-                    getContext().startService(serviceIntent);
 //                   NotificationCompat.Builder builder = new NotificationCompat.Builder(requireContext(), "mychannel")
 //                            .setSmallIcon(R.drawable.ic_menu_camera)
 //                            .setContentTitle("Напоминание создано")
@@ -95,15 +86,15 @@ public class ComboFragment extends Fragment {
 
     @Override
     public void onResume() {
-        if (!String.valueOf(forCreateComboH).isEmpty()&&!String.valueOf(forCreateComboM).isEmpty()){
+        if (!String.valueOf(timeH).isEmpty()&&!String.valueOf(timeM).isEmpty()){
             String a;
             String b;
-            if (forCreateComboH<10){
-                a = "0"+forCreateComboH;
-            } else a = forCreateComboH+"";
-            if (forCreateComboM<10){
-                b = "0"+forCreateComboM;
-            } else b = forCreateComboM+"";
+            if (timeH <10){
+                a = "0"+ timeH;
+            } else a = timeH +"";
+            if (timeM <10){
+                b = "0"+ timeM;
+            } else b = timeM +"";
             binding.Time.setText(a+":"+b);
         }
         super.onResume();
