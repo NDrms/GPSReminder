@@ -19,7 +19,7 @@ import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
 public class ComboFragment extends Fragment {
-
+    public static boolean TF = false;
     public static int timeH;
     public static int timeM;
 
@@ -74,16 +74,12 @@ public class ComboFragment extends Fragment {
             }
 
         });
-        binding.Time.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                findNavController(requireView()).navigate(R.id.action_navigation_home_to_getTime);
-            }
-        });
+        binding.Time.setOnClickListener(v -> findNavController(requireView()).navigate(R.id.action_navigation_home_to_getTime));
 
         return root;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onResume() {
         if (!String.valueOf(timeH).isEmpty()&&!String.valueOf(timeM).isEmpty()){
@@ -105,6 +101,4 @@ public class ComboFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
-
 }

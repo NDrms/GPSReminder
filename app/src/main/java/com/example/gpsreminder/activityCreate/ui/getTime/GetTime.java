@@ -1,6 +1,7 @@
 package com.example.gpsreminder.activityCreate.ui.getTime;
 
 import static androidx.navigation.Navigation.findNavController;
+import static com.example.gpsreminder.activityCreate.ui.combo.ComboFragment.TF;
 import static com.example.gpsreminder.activityCreate.ui.combo.ComboFragment.timeH;
 import static com.example.gpsreminder.activityCreate.ui.combo.ComboFragment.timeM;
 
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.gpsreminder.R;
+import com.example.gpsreminder.activityCreate.ui.combo.ComboFragment;
 import com.example.gpsreminder.databinding.FragmentGettimeBinding;
 
 public class GetTime extends Fragment {
@@ -40,10 +42,14 @@ public class GetTime extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.button.setOnClickListener(v -> {
-            timeH = binding.timePicker.getHour();
+        binding.button.setOnClickListener(v -> {timeH = binding.timePicker.getHour();
             timeM = binding.timePicker.getMinute();
-            findNavController(requireView()).navigate(R.id.action_getTime_to_navigation_home);
+            if (TF){
+                TF = false;
+                findNavController(requireView()).navigate(R.id.action_getTime_to_navigation_notifications);
+            } else {
+
+            findNavController(requireView()).navigate(R.id.action_getTime_to_navigation_home);}
         });
     }
 
