@@ -48,7 +48,9 @@ public class ComboFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!binding.Name.getText().toString().isEmpty() && !binding.rad.getText().toString().isEmpty()) {
-                    Snackbar.make(container, "Успешно", BaseTransientBottomBar.LENGTH_SHORT).show();
+                    if (!binding.GPS.getText().equals("Местоположение")){
+                    Snackbar.make(container, "Успешно", BaseTransientBottomBar.LENGTH_SHORT).show();}
+                    else Snackbar.make(container, "Укажите местоположение", BaseTransientBottomBar.LENGTH_SHORT).show();
 //                   NotificationCompat.Builder builder = new NotificationCompat.Builder(requireContext(), "mychannel")
 //                            .setSmallIcon(R.drawable.ic_menu_camera)
 //                            .setContentTitle("Напоминание создано")
@@ -75,6 +77,7 @@ public class ComboFragment extends Fragment {
 
         });
         binding.Time.setOnClickListener(v -> findNavController(requireView()).navigate(R.id.action_navigation_home_to_getTime));
+        binding.GPS.setOnClickListener(v -> findNavController(requireView()).navigate(R.id.action_navigation_home_to_mapsFragment));
 
         return root;
     }

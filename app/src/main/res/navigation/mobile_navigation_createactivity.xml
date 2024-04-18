@@ -9,7 +9,11 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.example.gpsreminder.activityCreate.ui.GPS.GPSFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_gps_reminds" />
+        tools:layout="@layout/fragment_gps_reminds" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
@@ -28,6 +32,9 @@
         <action
             android:id="@+id/action_navigation_home_to_getTime"
             app:destination="@id/getTime" />
+        <action
+            android:id="@+id/action_navigation_home_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
     </fragment>
     <fragment
         android:id="@+id/getTime"
@@ -39,5 +46,17 @@
         <action
             android:id="@+id/action_getTime_to_navigation_notifications"
             app:destination="@id/navigation_notifications" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.gpsreminder.activityCreate.ui.map.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_mapsFragment_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
     </fragment>
 </navigation>
