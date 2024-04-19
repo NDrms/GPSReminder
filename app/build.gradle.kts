@@ -37,6 +37,8 @@ android {
 }
 
 dependencies {
+    implementation("com.yandex.android:maps.mobile:4.5.1-lite")
+
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.core:core-ktx:1.13.0")
     implementation("com.google.android.material:material:1.11.0")
@@ -76,3 +78,5 @@ secrets {
     ignoreList.add("keyToIgnore") // Ignore the key "keyToIgnore"
     ignoreList.add("sdk.*")       // Ignore all keys matching the regexp "sdk.*"
 }
+
+

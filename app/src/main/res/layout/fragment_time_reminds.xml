@@ -1,61 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".activityCreate.ui.time.TimeFragment">
-
-    <EditText
-        android:id="@+id/Name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@+id/timeTxt"
-        app:layout_constraintEnd_toEndOf="@+id/time"
-        app:layout_constraintStart_toStartOf="@+id/time"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/nameText"
         android:layout_width="102dp"
         android:layout_height="29dp"
         android:text="@string/nameTxt"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/Name"
-        app:layout_constraintEnd_toEndOf="@+id/Name"
-        app:layout_constraintStart_toStartOf="@+id/Name" />
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
 
     <TextView
         android:id="@+id/timeTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/timeTxt"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/time"
-        app:layout_constraintEnd_toEndOf="@+id/time"
-        app:layout_constraintStart_toStartOf="@+id/time" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/time"
         android:layout_width="89dp"
         android:layout_height="44dp"
         android:text="00:00"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="34sp" />
 
     <Button
         android:id="@+id/CreateTimeType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="75dp"
-        android:text="@string/doneTxt"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="@string/doneTxt" />
+</LinearLayout>

@@ -10,7 +10,12 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.gpsreminder.R;
 import com.example.gpsreminder.databinding.ActivityCreateBinding;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.yandex.mapkit.MapKitFactory;
 
 public class CreateActivity extends AppCompatActivity {
     private static boolean TimePickOnCombo = false;
@@ -23,6 +28,9 @@ public class CreateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
+        MapKitFactory.setApiKey("7d848716-5181-4f5b-a7fe-c78131a93dc8");
+        MapKitFactory.initialize(this);
 
         com.example.gpsreminder.databinding.ActivityCreateBinding binding = ActivityCreateBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

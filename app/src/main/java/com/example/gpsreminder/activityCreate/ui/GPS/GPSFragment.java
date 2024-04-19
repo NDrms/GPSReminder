@@ -1,5 +1,7 @@
 package com.example.gpsreminder.activityCreate.ui.GPS;
 
+import static androidx.navigation.Navigation.findNavController;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +37,7 @@ public class GPSFragment extends Fragment {
             }
 
         });
+        binding.GPS.setOnClickListener(v -> findNavController(requireView()).navigate(R.id.action_navigation_dashboard_to_mapsFragment));
         View root = binding.getRoot();
         return root;
     }
