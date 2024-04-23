@@ -51,12 +51,5 @@
         android:id="@+id/mapsFragment"
         android:name="com.example.gpsreminder.activityCreate.ui.map.MapsFragment"
         android:label="fragment_maps"
-        tools:layout="@layout/fragment_maps" >
-        <action
-            android:id="@+id/action_mapsFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
-        <action
-            android:id="@+id/action_mapsFragment_to_navigation_dashboard"
-            app:destination="@id/navigation_dashboard" />
-    </fragment>
+        tools:layout="@layout/fragment_maps" />
 </navigation>

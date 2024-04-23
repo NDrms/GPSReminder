@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,12 +7,18 @@
     android:orientation="vertical"
     tools:context=".activityCreate.ui.combo.ComboFragment">
 
-    <TextView
-        android:id="@+id/GPS"
-        android:layout_width="316dp"
-        android:layout_height="84dp"
-        android:text="Местоположение"
-        android:textSize="34sp" />
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="поиск" />
 
     <TextView
         android:id="@+id/nameText"
@@ -62,6 +67,7 @@
         android:id="@+id/create_combo_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/doneTxt" />
+        android:text="@string/doneTxt"
+        android:textSize="14sp" />
 
 </LinearLayout>

@@ -1,6 +1,8 @@
 package com.example.gpsreminder.activityCreate;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -10,10 +12,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.gpsreminder.R;
 import com.example.gpsreminder.databinding.ActivityCreateBinding;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.yandex.mapkit.MapKitFactory;
 
