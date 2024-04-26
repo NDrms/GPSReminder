@@ -1,8 +1,6 @@
 package com.example.gpsreminder.activityCreate;
 
 import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -16,6 +14,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.yandex.mapkit.MapKitFactory;
 
 public class CreateActivity extends AppCompatActivity {
+    public static int H = 0;
+    public static int M = 0;
     private static boolean TimePickOnCombo = false;
 
     public static void TimePickOnCombo(){

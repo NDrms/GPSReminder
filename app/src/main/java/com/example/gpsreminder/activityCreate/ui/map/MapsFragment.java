@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 
 import com.example.gpsreminder.R;
 import com.example.gpsreminder.databinding.FragmentMapsBinding;
-import com.google.android.gms.maps.GoogleMap;
 import com.yandex.mapkit.MapKitFactory;
 import com.yandex.mapkit.geometry.Point;
 import com.yandex.mapkit.map.CameraPosition;

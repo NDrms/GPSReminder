@@ -1,23 +1,21 @@
 package com.example.gpsreminder.activityCreate.ui.time;
 
 import static androidx.navigation.Navigation.findNavController;
-
+import static com.example.gpsreminder.activityCreate.CreateActivity.H;
+import static com.example.gpsreminder.activityCreate.CreateActivity.M;
 import static com.example.gpsreminder.activityCreate.ui.combo.ComboFragment.TF;
-import static com.example.gpsreminder.activityCreate.ui.combo.ComboFragment.timeH;
-import static com.example.gpsreminder.activityCreate.ui.combo.ComboFragment.timeM;
 
 import android.annotation.SuppressLint;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import com.example.gpsreminder.R;
+import com.example.gpsreminder.background.PushNotificationScheduler;
 import com.example.gpsreminder.databinding.FragmentTimeRemindsBinding;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
@@ -32,48 +30,23 @@ public class TimeFragment extends Fragment {
 
         binding = FragmentTimeRemindsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        if (!String.valueOf(timeH).isEmpty()&&!String.valueOf(timeM).isEmpty()){
+        if (!String.valueOf(H).isEmpty()&&!String.valueOf(M).isEmpty()){
             String a;
             String b;
-            if (timeH <10){
-                a = "0"+ timeH;
-            } else a = timeH +"";
-            if (timeM <10){
-                b = "0"+ timeM;
-            } else b = timeM +"";
+            if (H <10){
+                a = "0"+ H;
+            } else a = H +"";
+            if (M <10){
+                b = "0"+ M;
+            } else b = M +"";
             binding.time.setText(a+":"+b);
         }
-        binding.CreateTimeType.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
-            @Override
-            public void onClick(View v) {
-                if (!binding.Name.getText().toString().isEmpty()) {
-                    Snackbar.make(container, "Успешно", BaseTransientBottomBar.LENGTH_SHORT).show();
-
-//                   NotificationCompat.Builder builder = new NotificationCompat.Builder(requireContext(), "mychannel")
-//                            .setSmallIcon(R.drawable.ic_menu_camera)
-//                            .setContentTitle("Напоминание создано")
-//                            .setContentText(Created)
-//                            .setPriority(NotificationCompat.PRIORITY_HIGH);
-//
-//                    NotificationManagerCompat notificationManager =
-//                            NotificationManagerCompat.from(requireContext());
-//                    if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-//                        //    ActivityCompat#requestPermissions
-//                        // here to request the missing permissions, and then overriding
-//                        //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//                        //                                          int[] grantResults)
-//                        // to handle the case where the user grants the permission. See the documentation
-//                        // for ActivityCompat#requestPermissions for more details.
-//                        requireActivity().requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, 999);
-//
-//                        return;
-//                    }
-//                    notificationManager.notify(NOTIFY_ID, builder.build());
-                } else
-                    Snackbar.make(container, R.string.fill_fields, BaseTransientBottomBar.LENGTH_SHORT).show();
-            }
-
+        binding.CreateTimeType.setOnClickListener(v -> {
+            if (!binding.Name.getText().toString().isEmpty()) {
+                PushNotificationScheduler.schedulePushNotification(requireContext(),H, M,binding.Name.getText().toString());
+                Snackbar.make(container, "Успешно", BaseTransientBottomBar.LENGTH_SHORT).show();
+            } else
+                Snackbar.make(container, R.string.fill_fields, BaseTransientBottomBar.LENGTH_SHORT).show();
         });
         TF = true;
         binding.time.setOnClickListener(v -> findNavController(requireView()).navigate(R.id.action_navigation_notifications_to_getTime));
@@ -84,15 +57,15 @@ public class TimeFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     @Override
     public void onResume() {
-        if (!String.valueOf(timeH).isEmpty()&&!String.valueOf(timeM).isEmpty()){
+        if (!String.valueOf(H).isEmpty()&&!String.valueOf(M).isEmpty()){
             String a;
             String b;
-            if (timeH <10){
-                a = "0"+ timeH;
-            } else a = timeH +"";
-            if (timeM <10){
-                b = "0"+ timeM;
-            } else b = timeM +"";
+            if (H <10){
+                a = "0"+ H;
+            } else a = H +"";
+            if (M <10){
+                b = "0"+ M;
+            } else b = M +"";
             binding.time.setText(a+":"+b);
         }
         super.onResume();

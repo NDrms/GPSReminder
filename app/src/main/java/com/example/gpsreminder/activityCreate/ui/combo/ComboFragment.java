@@ -2,9 +2,10 @@ package com.example.gpsreminder.activityCreate.ui.combo;
 
 import static androidx.navigation.Navigation.findNavController;
 
+import static com.example.gpsreminder.activityCreate.CreateActivity.H;
+import static com.example.gpsreminder.activityCreate.CreateActivity.M;
+
 import android.annotation.SuppressLint;
-import android.location.Address;
-import android.location.Geocoder;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,13 +21,8 @@ import com.example.gpsreminder.databinding.FragmentComboRemindsBinding;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.io.IOException;
-import java.util.List;
-
 public class ComboFragment extends Fragment {
     public static boolean TF = false;
-    public static int timeH;
-    public static int timeM;
     private static double latitude;
     private static double longitude;
 
@@ -40,15 +36,15 @@ public class ComboFragment extends Fragment {
 
         binding = FragmentComboRemindsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        if (!String.valueOf(timeH).isEmpty() && !String.valueOf(timeM).isEmpty()) {
+        if (!String.valueOf(H).isEmpty() && !String.valueOf(M).isEmpty()) {
             String a;
             String b;
-            if (timeH < 10) {
-                a = "0" + timeH;
-            } else a = timeH + "";
-            if (timeM < 10) {
-                b = "0" + timeM;
-            } else b = timeM + "";
+            if (H < 10) {
+                a = "0" + H;
+            } else a = H + "";
+            if (M < 10) {
+                b = "0" + M;
+            } else b = M + "";
             binding.Time.setText(a + ":" + b);
         }
         binding.createComboType.setOnClickListener(new View.OnClickListener() {
@@ -98,15 +94,15 @@ public class ComboFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     @Override
     public void onResume() {
-        if (!String.valueOf(timeH).isEmpty() && !String.valueOf(timeM).isEmpty()) {
+        if (!String.valueOf(H).isEmpty() && !String.valueOf(M).isEmpty()) {
             String a;
             String b;
-            if (timeH < 10) {
-                a = "0" + timeH;
-            } else a = timeH + "";
-            if (timeM < 10) {
-                b = "0" + timeM;
-            } else b = timeM + "";
+            if (H < 10) {
+                a = "0" + H;
+            } else a = H + "";
+            if (M < 10) {
+                b = "0" + M;
+            } else b = M + "";
             binding.Time.setText(a + ":" + b);
         }
         super.onResume();
