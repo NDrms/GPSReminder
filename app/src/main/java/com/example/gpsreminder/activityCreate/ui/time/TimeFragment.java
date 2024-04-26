@@ -6,6 +6,7 @@ import static com.example.gpsreminder.activityCreate.CreateActivity.M;
 import static com.example.gpsreminder.activityCreate.ui.combo.ComboFragment.TF;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.gpsreminder.MainActivity;
 import com.example.gpsreminder.R;
 import com.example.gpsreminder.background.PushNotificationScheduler;
 import com.example.gpsreminder.databinding.FragmentTimeRemindsBinding;
@@ -45,6 +47,8 @@ public class TimeFragment extends Fragment {
             if (!binding.Name.getText().toString().isEmpty()) {
                 PushNotificationScheduler.schedulePushNotification(requireContext(),H, M,binding.Name.getText().toString());
                 Snackbar.make(container, "Успешно", BaseTransientBottomBar.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
             } else
                 Snackbar.make(container, R.string.fill_fields, BaseTransientBottomBar.LENGTH_SHORT).show();
         });
