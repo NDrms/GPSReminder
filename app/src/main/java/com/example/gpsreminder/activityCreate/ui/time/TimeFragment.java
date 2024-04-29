@@ -15,7 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.gpsreminder.R;
-import com.example.gpsreminder.background.PushNotificationScheduler;
+import com.example.gpsreminder.background.NotificationScheduler;
 import com.example.gpsreminder.databinding.FragmentTimeRemindsBinding;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
@@ -43,7 +43,10 @@ public class TimeFragment extends Fragment {
         }
         binding.CreateTimeType.setOnClickListener(v -> {
             if (!binding.Name.getText().toString().isEmpty()) {
-                PushNotificationScheduler.schedulePushNotification(requireContext(),H, M,binding.Name.getText().toString());
+                long delay = 10 * 1000; // Задержка в миллисекундах (например, 10 секунд)
+                int notificationId = 1; // Уникальный ID уведомления
+
+                NotificationScheduler.scheduleNotification(getContext(), delay, notificationId);
                 Snackbar.make(container, "Успешно", BaseTransientBottomBar.LENGTH_SHORT).show();
             } else
                 Snackbar.make(container, R.string.fill_fields, BaseTransientBottomBar.LENGTH_SHORT).show();

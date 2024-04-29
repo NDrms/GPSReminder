@@ -54,7 +54,6 @@ public class MapsFragment extends Fragment {//} implements OnMapReadyCallback {
                 if (mark == null) {
                     mark = binding.mapview.getMapWindow().getMap().getMapObjects().addPlacemark(placemarkMapObject -> {
                         placemarkMapObject.setGeometry(point);
-
                         placemarkMapObject.setIcon(ImageProvider.fromResource(MapsFragment.this.getContext(), R.drawable.ic_map_pin));
                         IconStyle style = new IconStyle();
                         style.setAnchor(new PointF(0.5f, 0.84f));
@@ -70,7 +69,20 @@ public class MapsFragment extends Fragment {//} implements OnMapReadyCallback {
 
             @Override
             public void onMapLongTap(@NonNull Map map, @NonNull Point point) {
+                if (mark == null) {
+                    mark = binding.mapview.getMapWindow().getMap().getMapObjects().addPlacemark(placemarkMapObject -> {
+                        placemarkMapObject.setGeometry(point);
+                        placemarkMapObject.setIcon(ImageProvider.fromResource(MapsFragment.this.getContext(), R.drawable.ic_map_pin));
+                        IconStyle style = new IconStyle();
+                        style.setAnchor(new PointF(0.5f, 0.84f));
+                        style.setScale(0.25f);
+                        placemarkMapObject.setIconStyle(style);
 
+
+                    });
+                } else {
+                    mark.setGeometry(point);
+                }
             }
         });
     }
