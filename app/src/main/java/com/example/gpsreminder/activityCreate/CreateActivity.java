@@ -14,8 +14,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.yandex.mapkit.MapKitFactory;
 
 public class CreateActivity extends AppCompatActivity {
-    public static int H = 0;
-    public static int M = 0;
+    public static int hours = 0;
+    public static String Message = "";
+    public static int minutes = 0;
     private static boolean TimePickOnCombo = false;
 
     public static void TimePickOnCombo(){

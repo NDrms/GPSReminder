@@ -1,8 +1,9 @@
 package com.example.gpsreminder.activityCreate.ui.time;
 
 import static androidx.navigation.Navigation.findNavController;
-import static com.example.gpsreminder.activityCreate.CreateActivity.H;
-import static com.example.gpsreminder.activityCreate.CreateActivity.M;
+import static com.example.gpsreminder.activityCreate.CreateActivity.Message;
+import static com.example.gpsreminder.activityCreate.CreateActivity.hours;
+import static com.example.gpsreminder.activityCreate.CreateActivity.minutes;
 import static com.example.gpsreminder.activityCreate.ui.combo.ComboFragment.TF;
 
 import android.annotation.SuppressLint;
@@ -15,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.gpsreminder.R;
-import com.example.gpsreminder.background.NotificationScheduler;
+import com.example.gpsreminder.background.TimeRem;
 import com.example.gpsreminder.databinding.FragmentTimeRemindsBinding;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
@@ -27,32 +28,38 @@ public class TimeFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-
         binding = FragmentTimeRemindsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        if (!String.valueOf(H).isEmpty()&&!String.valueOf(M).isEmpty()){
+        if (!String.valueOf(hours).isEmpty() && !String.valueOf(minutes).isEmpty()) {
             String a;
             String b;
-            if (H <10){
-                a = "0"+ H;
-            } else a = H +"";
-            if (M <10){
-                b = "0"+ M;
-            } else b = M +"";
-            binding.time.setText(a+":"+b);
+            if (hours < 10) {
+                a = "0" + hours;
+            } else a = hours + "";
+            if (minutes < 10) {
+                b = "0" + minutes;
+            } else b = minutes + "";
+            binding.time.setText(a + ":" + b);
         }
+        binding.Name.setText(Message);
         binding.CreateTimeType.setOnClickListener(v -> {
             if (!binding.Name.getText().toString().isEmpty()) {
-                long delay = 10 * 1000; // Задержка в миллисекундах (например, 10 секунд)
-                int notificationId = 1; // Уникальный ID уведомления
-
-                NotificationScheduler.scheduleNotification(getContext(), delay, notificationId);
+                TimeRem timeRem = new TimeRem(getContext(),
+                        binding.Name.getText().toString(),
+                        hours,
+                        minutes);
                 Snackbar.make(container, "Успешно", BaseTransientBottomBar.LENGTH_SHORT).show();
+                timeRem.startChecking(); // Начать проверку
+                // Когда нужно остановить проверку:
+                // trueChecker.stopChecking();
             } else
                 Snackbar.make(container, R.string.fill_fields, BaseTransientBottomBar.LENGTH_SHORT).show();
         });
         TF = true;
-        binding.time.setOnClickListener(v -> findNavController(requireView()).navigate(R.id.action_navigation_notifications_to_getTime));
+        binding.time.setOnClickListener(v -> {
+            Message = binding.Name.getText().toString();
+            findNavController(requireView()).navigate(R.id.action_navigation_notifications_to_getTime);
+        });
 
         return root;
     }
@@ -60,16 +67,17 @@ public class TimeFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     @Override
     public void onResume() {
-        if (!String.valueOf(H).isEmpty()&&!String.valueOf(M).isEmpty()){
+        binding.Name.setText(Message);
+        if (!String.valueOf(hours).isEmpty() && !String.valueOf(minutes).isEmpty()) {
             String a;
             String b;
-            if (H <10){
-                a = "0"+ H;
-            } else a = H +"";
-            if (M <10){
-                b = "0"+ M;
-            } else b = M +"";
-            binding.time.setText(a+":"+b);
+            if (hours < 10) {
+                a = "0" + hours;
+            } else a = hours + "";
+            if (minutes < 10) {
+                b = "0" + minutes;
+            } else b = minutes + "";
+            binding.time.setText(a + ":" + b);
         }
         super.onResume();
     }

@@ -2,8 +2,8 @@ package com.example.gpsreminder.activityCreate.ui.combo;
 
 import static androidx.navigation.Navigation.findNavController;
 
-import static com.example.gpsreminder.activityCreate.CreateActivity.H;
-import static com.example.gpsreminder.activityCreate.CreateActivity.M;
+import static com.example.gpsreminder.activityCreate.CreateActivity.hours;
+import static com.example.gpsreminder.activityCreate.CreateActivity.minutes;
 
 import android.annotation.SuppressLint;
 import android.os.Build;
@@ -36,15 +36,15 @@ public class ComboFragment extends Fragment {
 
         binding = FragmentComboRemindsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        if (!String.valueOf(H).isEmpty() && !String.valueOf(M).isEmpty()) {
+        if (!String.valueOf(hours).isEmpty() && !String.valueOf(minutes).isEmpty()) {
             String a;
             String b;
-            if (H < 10) {
-                a = "0" + H;
-            } else a = H + "";
-            if (M < 10) {
-                b = "0" + M;
-            } else b = M + "";
+            if (hours < 10) {
+                a = "0" + hours;
+            } else a = hours + "";
+            if (minutes < 10) {
+                b = "0" + minutes;
+            } else b = minutes + "";
             binding.Time.setText(a + ":" + b);
         }
         binding.createComboType.setOnClickListener(new View.OnClickListener() {
@@ -94,15 +94,15 @@ public class ComboFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     @Override
     public void onResume() {
-        if (!String.valueOf(H).isEmpty() && !String.valueOf(M).isEmpty()) {
+        if (!String.valueOf(hours).isEmpty() && !String.valueOf(minutes).isEmpty()) {
             String a;
             String b;
-            if (H < 10) {
-                a = "0" + H;
-            } else a = H + "";
-            if (M < 10) {
-                b = "0" + M;
-            } else b = M + "";
+            if (hours < 10) {
+                a = "0" + hours;
+            } else a = hours + "";
+            if (minutes < 10) {
+                b = "0" + minutes;
+            } else b = minutes + "";
             binding.Time.setText(a + ":" + b);
         }
         super.onResume();
