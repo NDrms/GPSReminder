@@ -3,7 +3,6 @@ package com.example.gpsreminder.activityCreate.ui.getTime;
 import static androidx.navigation.Navigation.findNavController;
 import static com.example.gpsreminder.activityCreate.CreateActivity.hours;
 import static com.example.gpsreminder.activityCreate.CreateActivity.minutes;
-import static com.example.gpsreminder.activityCreate.ui.combo.ComboFragment.TF;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -43,13 +42,7 @@ public class GetTime extends Fragment {
         binding.button.setOnClickListener(v -> {
             hours = binding.timePicker.getHour();
             minutes = binding.timePicker.getMinute();
-            if (TF) {
-                TF = false;
                 findNavController(requireView()).navigate(R.id.action_getTime_to_navigation_notifications);
-            } else {
-
-                findNavController(requireView()).navigate(R.id.action_getTime_to_navigation_home);
-            }
         });
     }
 

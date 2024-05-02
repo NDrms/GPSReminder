@@ -8,28 +8,11 @@
     android:orientation="vertical"
     tools:context=".activityCreate.ui.GPS.GPSFragment">
 
-    <TextView
-        android:id="@+id/GPS"
-        android:layout_width="match_parent"
-        android:layout_height="84dp"
-        android:gravity="center"
-        android:text="Местоположение"
-        android:textSize="34sp" />
-
-    <TextView
-        android:id="@+id/radTxt"
+    <Button
+        android:id="@+id/pin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/radiusTxt"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/rad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:inputType="numberSigned" />
+        android:text="Указать место" />
 
     <TextView
         android:id="@+id/nameText"

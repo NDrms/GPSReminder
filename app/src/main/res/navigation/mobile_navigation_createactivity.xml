@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation2"
-    app:startDestination="@id/navigation_home">
+    app:startDestination="@id/navigation_dashboard">
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -25,24 +25,9 @@
             app:destination="@id/getTime" />
     </fragment>
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.gpsreminder.activityCreate.ui.combo.ComboFragment"
-        android:label="Время + GPS"
-        tools:layout="@layout/fragment_combo_reminds" >
-        <action
-            android:id="@+id/action_navigation_home_to_getTime"
-            app:destination="@id/getTime" />
-        <action
-            android:id="@+id/action_navigation_home_to_mapsFragment"
-            app:destination="@id/mapsFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/getTime"
         android:name="com.example.gpsreminder.activityCreate.ui.getTime.GetTime"
         android:label="GetTime" >
-        <action
-            android:id="@+id/action_getTime_to_navigation_home"
-            app:destination="@id/navigation_home" />
         <action
             android:id="@+id/action_getTime_to_navigation_notifications"
             app:destination="@id/navigation_notifications" />
@@ -50,6 +35,10 @@
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.example.gpsreminder.activityCreate.ui.map.MapsFragment"
-        android:label="fragment_maps"
-        tools:layout="@layout/fragment_maps" />
+        android:label="Выбор точки"
+        tools:layout="@layout/fragment_maps">
+        <action
+            android:id="@+id/action_mapsFragment_to_navigation_dashboard2"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
 </navigation>
