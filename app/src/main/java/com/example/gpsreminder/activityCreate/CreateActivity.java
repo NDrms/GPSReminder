@@ -14,11 +14,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.yandex.mapkit.MapKitFactory;
 
 public class CreateActivity extends AppCompatActivity {
-    public static int H = 0;
-    public static int M = 0;
+    public static int hours = 0;
+    public static String Message = "";
+    public static int minutes = 0;
     private static boolean TimePickOnCombo = false;
 
-    public static void TimePickOnCombo(){
+    public static void TimePickOnCombo() {
         TimePickOnCombo = true;
     }
 
@@ -37,7 +38,7 @@ public class CreateActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+                R.id.navigation_dashboard, R.id.navigation_notifications)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_create);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);

@@ -33,7 +33,7 @@
     <string name="timeTxt">Время</string>
     <string name="radiusTxt">Радиус</string>
     <string name="doneTxt">Готово</string>
-    <string name="nameTxt">Название</string>
+    <string name="nameTxt">Сообщение</string>
     <string name="fragment_account">Аккаунт</string>
     <string name="reminder">Напоминание "</string>
     <string name="was_sch">" было назначено на </string>

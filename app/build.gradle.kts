@@ -38,7 +38,7 @@ android {
 
 dependencies {
     implementation("com.yandex.android:maps.mobile:4.5.1-lite")
-
+    implementation("com.google.firebase:firebase-messaging:23.4.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("androidx.core:core-ktx:1.13.0")
     implementation("com.google.android.material:material:1.11.0")

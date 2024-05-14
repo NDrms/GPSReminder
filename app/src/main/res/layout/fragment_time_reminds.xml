@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/nameText"
-        android:layout_width="102dp"
+        android:layout_width="117dp"
         android:layout_height="29dp"
         android:text="@string/nameTxt"
         android:textSize="20sp" />
