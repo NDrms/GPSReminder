@@ -1,7 +1,5 @@
 package com.example.gpsreminder.background;
 
-import java.util.Calendar;
-
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -11,6 +9,8 @@ import android.os.Looper;
 import androidx.core.app.NotificationCompat;
 
 import com.example.gpsreminder.R;
+
+import java.util.Calendar;
 
 public class TimeChecker {
     private Handler handler;
@@ -77,7 +77,7 @@ public class TimeChecker {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelId)
                 .setContentTitle(title)
                 .setContentText(message)
-                .setSmallIcon(R.drawable.ic_notifications_black_24dp)
+                .setSmallIcon(R.drawable.ic_home_black_24dp)
                 .setPriority(NotificationCompat.PRIORITY_MAX)
                 .setDefaults(NotificationCompat.DEFAULT_ALL);
 

@@ -1,10 +1,9 @@
 package com.example.gpsreminder.background;
 
-import java.util.Calendar;
-
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.hardware.SensorEvent;
 import android.os.Handler;
 import android.os.Looper;
 
@@ -12,7 +11,29 @@ import androidx.core.app.NotificationCompat;
 
 import com.example.gpsreminder.R;
 
+import java.util.Calendar;
+
 public class GPSChecker {
+    public static double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
+        double R = 6371000; // радиус Земли в метрах
+        double phi1 = Math.toRadians(lat1);
+        double phi2 = Math.toRadians(lat2);
+        double deltaPhi = Math.toRadians(lat2 - lat1);
+        double deltaLambda = Math.toRadians(lon2 - lon1);
+
+        double a = Math.sin(deltaPhi / 2) * Math.sin(deltaPhi / 2) +
+                Math.cos(phi1) * Math.cos(phi2) *
+                        Math.sin(deltaLambda / 2) * Math.sin(deltaLambda / 2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+        return R * c;
+    }
+    public void onSensorChanged (SensorEvent event){
+        double userLatitude = 0.1;
+        double userLongitude = 0.1;
+        double dist = calculateDistance(latitude,longitude,userLatitude,userLongitude);
+
+    }
     private Handler handler;
     private Runnable timeComparison;
     private Context context;
@@ -24,6 +45,7 @@ public class GPSChecker {
         this.latitude = latitude;
         this.longitude = longitude;
         handler = new Handler(Looper.getMainLooper());
+
         timeComparison = new Runnable() {
             @Override
             public void run() {

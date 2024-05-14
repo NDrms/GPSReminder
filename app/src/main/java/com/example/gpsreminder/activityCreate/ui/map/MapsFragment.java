@@ -1,7 +1,5 @@
 package com.example.gpsreminder.activityCreate.ui.map;
 
-import static android.app.PendingIntent.getActivity;
-
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.gpsreminder.R;
@@ -22,6 +19,7 @@ import com.yandex.mapkit.map.CameraPosition;
 import com.yandex.mapkit.map.IconStyle;
 import com.yandex.mapkit.map.InputListener;
 import com.yandex.mapkit.map.Map;
+import com.yandex.mapkit.map.MapObjectCollection;
 import com.yandex.mapkit.map.PlacemarkMapObject;
 import com.yandex.runtime.image.ImageProvider;
 
@@ -56,11 +54,26 @@ public class MapsFragment extends Fragment {
                         style.setAnchor(new PointF(0.5f, 0.84f));
                         style.setScale(0.25f);
                         placemarkMapObject.setIconStyle(style);
-                        pointLat = point.getLatitude();
-                        pointLong = point.getLongitude();
                     });
                 } else {
-                    mark.setGeometry(point);
+                    MapObjectCollection mapObjects = binding.mapview.getMap().getMapObjects();
+                    mapObjects.clear();
+                    mark = binding.mapview.getMapWindow().getMap().getMapObjects().addPlacemark(placemarkMapObject -> {
+                        placemarkMapObject.setGeometry(point);
+                        placemarkMapObject.setIcon(ImageProvider.fromResource(MapsFragment.this.getContext(), R.drawable.ic_map_pin));
+                        IconStyle style = new IconStyle();
+                        style.setAnchor(new PointF(0.5f, 0.84f));
+                        style.setScale(0.25f);
+                        placemarkMapObject.setIconStyle(style);
+                        pointLat = point.getLatitude();
+                        pointLong = point.getLongitude();
+                        if (circle != null) {
+                            float radius = Float.parseFloat(binding.rad.getText().toString());
+                            circle = new Circle(new Point(pointLat, pointLong), radius);
+                            // Add the circle to the map objects
+                            binding.mapview.getMapWindow().getMap().getMapObjects().addCircle(circle);
+                        }
+                    });
                     pointLat = point.getLatitude();
                     pointLong = point.getLongitude();
                 }
@@ -71,10 +84,20 @@ public class MapsFragment extends Fragment {
             }
         });
         binding.apply.setOnClickListener(v -> {
-            float radius = Float.parseFloat(binding.rad.getText().toString());
-            circle = new Circle(new Point(pointLat, pointLong), radius);
-            // Add the circle to the map objects
-            binding.mapview.getMapWindow().getMap().getMapObjects().addCircle(circle);
+            if (circle == null) {
+                float radius = Float.parseFloat(binding.rad.getText().toString());
+                circle = new Circle(new Point(pointLat, pointLong), radius);
+                // Add the circle to the map objects
+                binding.mapview.getMapWindow().getMap().getMapObjects().addCircle(circle);
+            } else {
+                MapObjectCollection mapObjects = binding.mapview.getMap().getMapObjects();
+                mapObjects.clear();
+                circle = null;
+                float radius = Float.parseFloat(binding.rad.getText().toString());
+                circle = new Circle(new Point(pointLat, pointLong), radius);
+                // Add the circle to the map objects
+                binding.mapview.getMapWindow().getMap().getMapObjects().addCircle(circle);
+            }
         });
 
         binding.mapview.getMapWindow().getMap().move(
