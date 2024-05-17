@@ -2,8 +2,11 @@ package com.example.gpsreminder.background;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.Service;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
+import android.os.IBinder;
 import android.os.Looper;
 
 import androidx.core.app.NotificationCompat;
@@ -12,12 +15,36 @@ import com.example.gpsreminder.R;
 
 import java.util.Calendar;
 
-public class TimeChecker {
+public class TimeChecker extends Service {
+    private void sendNotification(String title, String message) {
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        String channelId = "gpsr_channel";
+        String channelName = "GPSReminder";
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelId)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setSmallIcon(R.drawable.ic_home_black_24dp)
+                .setPriority(NotificationCompat.PRIORITY_MAX)
+                .setDefaults(NotificationCompat.DEFAULT_ALL);
+
+        notificationManager.notify(1, builder.build());
+    }
+
     private Handler handler;
     private Runnable timeComparison;
     private Context context;
     private int targetHour;
     private int targetMinute;
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
 
     public TimeChecker(Context context, String message, int hours, int minutes) {
         this.context = context;
@@ -44,7 +71,6 @@ public class TimeChecker {
             }
         };
     }
-
     public void startChecking() {
         // Запускаем проверку времени в новом потоке
         new Thread(new Runnable() {
@@ -64,23 +90,7 @@ public class TimeChecker {
         // Удаляем все колбэки из очереди сообщений для handler'а
         handler.removeCallbacksAndMessages(null);
     }
-
-    private void sendNotification(String title, String message) {
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        String channelId = "gpsr_channel";
-        String channelName = "GPSReminder";
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT);
-            notificationManager.createNotificationChannel(channel);
-        }
-
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelId)
-                .setContentTitle(title)
-                .setContentText(message)
-                .setSmallIcon(R.drawable.ic_home_black_24dp)
-                .setPriority(NotificationCompat.PRIORITY_MAX)
-                .setDefaults(NotificationCompat.DEFAULT_ALL);
-
-        notificationManager.notify(1, builder.build());
-    }
 }
+
+
+

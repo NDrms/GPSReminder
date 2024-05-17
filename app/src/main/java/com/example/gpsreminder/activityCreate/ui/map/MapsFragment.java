@@ -1,5 +1,10 @@
 package com.example.gpsreminder.activityCreate.ui.map;
 
+import static androidx.navigation.Navigation.findNavController;
+import static com.example.gpsreminder.activityCreate.CreateActivity.latitude;
+import static com.example.gpsreminder.activityCreate.CreateActivity.longitude;
+import static com.example.gpsreminder.activityCreate.CreateActivity.radius;
+
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -42,6 +47,12 @@ public class MapsFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        binding.Done.setOnClickListener(v -> {
+            radius = Double.parseDouble(binding.rad.getText().toString());
+            latitude = pointLat;
+            longitude = pointLong;
+            findNavController(requireView()).navigate(R.id.action_mapsFragment_to_navigation_dashboard2);
+        });
         super.onViewCreated(view, savedInstanceState);
         binding.mapview.getMapWindow().getMap().addInputListener(new InputListener() {
             @Override

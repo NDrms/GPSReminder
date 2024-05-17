@@ -1,11 +1,13 @@
 package com.example.gpsreminder.activityCreate.ui.time;
 
 import static androidx.navigation.Navigation.findNavController;
+import static com.example.gpsreminder.MainActivity.gpsRem;
 import static com.example.gpsreminder.activityCreate.CreateActivity.Message;
 import static com.example.gpsreminder.activityCreate.CreateActivity.hours;
 import static com.example.gpsreminder.activityCreate.CreateActivity.minutes;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +16,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.gpsreminder.MainActivity;
 import com.example.gpsreminder.R;
-import com.example.gpsreminder.background.GPSChecker;
 import com.example.gpsreminder.background.TimeChecker;
 import com.example.gpsreminder.databinding.FragmentTimeRemindsBinding;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
@@ -51,7 +53,10 @@ public class TimeFragment extends Fragment {
                         minutes
                 );
                 Snackbar.make(container, "Успешно", BaseTransientBottomBar.LENGTH_SHORT).show();
-                timeChecker.startChecking(); // Начать проверку
+                gpsRem = true;
+                Intent intent = new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+                // Начать проверку
                 // Когда нужно остановить проверку:
                 // trueChecker.stopChecking();
             } else

@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.gpsreminder.R;
-import com.example.gpsreminder.databinding.*;
+import com.example.gpsreminder.databinding.FragmentGpsRemindsBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
@@ -34,6 +34,12 @@ public class GPSFragment extends Fragment {
                 String Created = "Напоминание \"" + binding.Name.getText().toString() + "\" успешно создано";
                 if (!binding.Name.getText().toString().isEmpty()) {
                     Snackbar.make(container, Created, BaseTransientBottomBar.LENGTH_SHORT).show();
+//                    GPSChecker gpsChecker = new GPSChecker(
+//                            getContext(),
+//                            ,
+//                            ,
+//
+//                    );
                 } else Snackbar.make (container, R.string.fill_fields,BaseTransientBottomBar.LENGTH_SHORT).show();
             }
 

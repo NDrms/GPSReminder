@@ -14,11 +14,13 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.gpsreminder.activityCreate.CreateActivity;
+import com.example.gpsreminder.background.TimeChecker;
 import com.example.gpsreminder.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
+    public static boolean gpsRem = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,5 +80,14 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    protected void onResume() {
+        if (gpsRem){
+            Intent intent = new Intent(this, TimeChecker.class);
+            startService(intent);
+        }
+        super.onResume();
     }
 }
