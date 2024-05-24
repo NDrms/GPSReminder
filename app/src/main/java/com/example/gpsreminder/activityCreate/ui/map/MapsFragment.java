@@ -65,9 +65,10 @@ public class MapsFragment extends Fragment {
                         style.setAnchor(new PointF(0.5f, 0.84f));
                         style.setScale(0.25f);
                         placemarkMapObject.setIconStyle(style);
+                        System.out.println("\n\n\nРаботает\n\n\n");
                     });
                 } else {
-                    MapObjectCollection mapObjects = binding.mapview.getMap().getMapObjects();
+                    MapObjectCollection mapObjects = binding.mapview.getMapWindow().getMap().getMapObjects();
                     mapObjects.clear();
                     mark = binding.mapview.getMapWindow().getMap().getMapObjects().addPlacemark(placemarkMapObject -> {
                         placemarkMapObject.setGeometry(point);
@@ -92,6 +93,7 @@ public class MapsFragment extends Fragment {
 
             @Override
             public void onMapLongTap(@NonNull Map map, @NonNull Point point) {
+                if (true){}
             }
         });
         binding.apply.setOnClickListener(v -> {
@@ -101,7 +103,7 @@ public class MapsFragment extends Fragment {
                 // Add the circle to the map objects
                 binding.mapview.getMapWindow().getMap().getMapObjects().addCircle(circle);
             } else {
-                MapObjectCollection mapObjects = binding.mapview.getMap().getMapObjects();
+                MapObjectCollection mapObjects = binding.mapview.getMapWindow().getMap().getMapObjects();
                 mapObjects.clear();
                 circle = null;
                 float radius = Float.parseFloat(binding.rad.getText().toString());
@@ -124,46 +126,47 @@ public class MapsFragment extends Fragment {
 
     @Override
     public void onResume() {
-        binding.mapview.getMapWindow().getMap().addInputListener(new InputListener() {
-            @Override
-            public void onMapTap(@NonNull Map map, @NonNull Point point) {
-                if (mark == null) {
-                    mark = binding.mapview.getMapWindow().getMap().getMapObjects().addPlacemark(placemarkMapObject -> {
-                        placemarkMapObject.setGeometry(point);
-                        placemarkMapObject.setIcon(ImageProvider.fromResource(MapsFragment.this.getContext(), R.drawable.ic_map_pin));
-                        IconStyle style = new IconStyle();
-                        style.setAnchor(new PointF(0.5f, 0.84f));
-                        style.setScale(0.25f);
-                        placemarkMapObject.setIconStyle(style);
-                    });
-                } else {
-                    MapObjectCollection mapObjects = binding.mapview.getMap().getMapObjects();
-                    mapObjects.clear();
-                    mark = binding.mapview.getMapWindow().getMap().getMapObjects().addPlacemark(placemarkMapObject -> {
-                        placemarkMapObject.setGeometry(point);
-                        placemarkMapObject.setIcon(ImageProvider.fromResource(MapsFragment.this.getContext(), R.drawable.ic_map_pin));
-                        IconStyle style = new IconStyle();
-                        style.setAnchor(new PointF(0.5f, 0.84f));
-                        style.setScale(0.25f);
-                        placemarkMapObject.setIconStyle(style);
-                        pointLat = point.getLatitude();
-                        pointLong = point.getLongitude();
-                        if (circle != null) {
-                            float radius = Float.parseFloat(binding.rad.getText().toString());
-                            circle = new Circle(new Point(pointLat, pointLong), radius);
-                            // Add the circle to the map objects
-                            binding.mapview.getMapWindow().getMap().getMapObjects().addCircle(circle);
-                        }
-                    });
-                    pointLat = point.getLatitude();
-                    pointLong = point.getLongitude();
-                }
-            }
-
-            @Override
-            public void onMapLongTap(@NonNull Map map, @NonNull Point point) {
-            }
-        });
+//        binding.mapview.getMapWindow().getMap().addInputListener(new InputListener() {
+//            @Override
+//            public void onMapTap(@NonNull Map map, @NonNull Point point) {
+//                if (mark == null) {
+//                    mark = binding.mapview.getMapWindow().getMap().getMapObjects().addPlacemark(placemarkMapObject -> {
+//                        placemarkMapObject.setGeometry(point);
+//                        placemarkMapObject.setIcon(ImageProvider.fromResource(MapsFragment.this.getContext(), R.drawable.ic_map_pin));
+//                        IconStyle style = new IconStyle();
+//                        style.setAnchor(new PointF(0.5f, 0.84f));
+//                        style.setScale(0.25f);
+//                        placemarkMapObject.setIconStyle(style);
+//                    });
+//                } else {
+//                    MapObjectCollection mapObjects = binding.mapview.getMap().getMapObjects();
+//                    mapObjects.clear();
+//                    mark = binding.mapview.getMapWindow().getMap().getMapObjects().addPlacemark(placemarkMapObject -> {
+//                        placemarkMapObject.setGeometry(point);
+//                        placemarkMapObject.setIcon(ImageProvider.fromResource(MapsFragment.this.getContext(), R.drawable.ic_map_pin));
+//                        IconStyle style = new IconStyle();
+//                        style.setAnchor(new PointF(0.5f, 0.84f));
+//                        style.setScale(0.25f);
+//                        placemarkMapObject.setIconStyle(style);
+//                        pointLat = point.getLatitude();
+//                        pointLong = point.getLongitude();
+//                        if (circle != null) {
+//                            float radius = Float.parseFloat(binding.rad.getText().toString());
+//                            circle = new Circle(new Point(pointLat, pointLong), radius);
+//                            // Add the circle to the map objects
+//                            binding.mapview.getMapWindow().getMap().getMapObjects().addCircle(circle);
+//                        }
+//                    });
+//                    pointLat = point.getLatitude();
+//                    pointLong = point.getLongitude();
+//                }
+//            }
+//
+//            @Override
+//            public void onMapLongTap(@NonNull Map map, @NonNull Point point) {
+//            }
+//        });
+//
         super.onResume();
         MapKitFactory.getInstance().onStart();
         binding.mapview.onStart();
