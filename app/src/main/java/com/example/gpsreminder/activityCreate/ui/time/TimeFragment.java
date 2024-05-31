@@ -52,11 +52,13 @@ public class TimeFragment extends Fragment {
                         hours,
                         minutes
                 );
+                timeChecker.startChecking();
                 Snackbar.make(container, "Успешно", BaseTransientBottomBar.LENGTH_SHORT).show();
                 gpsRem = true;
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
                 // Начать проверку
+
                 // Когда нужно остановить проверку:
                 // trueChecker.stopChecking();
             } else

@@ -15,7 +15,7 @@ import com.example.gpsreminder.R;
 
 import java.util.Calendar;
 
-public class TimeChecker extends Service {
+public class TimeChecker {//extends Service {
     private void sendNotification(String title, String message) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         String channelId = "gpsr_channel";
@@ -41,10 +41,10 @@ public class TimeChecker extends Service {
     private int targetHour;
     private int targetMinute;
 
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
+//    @Override
+//    public IBinder onBind(Intent intent) {
+//        return null;
+//    }
 
     public TimeChecker(Context context, String message, int hours, int minutes) {
         this.context = context;
