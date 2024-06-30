@@ -43,7 +43,6 @@ public class TimeFragment extends Fragment {
             } else b = minutes + "";
             binding.time.setText(a + ":" + b);
         }
-        binding.Name.setText(Message);
         binding.CreateTimeType.setOnClickListener(v -> {
             if (!binding.Name.getText().toString().isEmpty()) {
                 TimeChecker timeChecker = new TimeChecker(
@@ -52,17 +51,16 @@ public class TimeFragment extends Fragment {
                         hours,
                         minutes
                 );
-                timeChecker.startChecking();
                 Snackbar.make(container, "Успешно", BaseTransientBottomBar.LENGTH_SHORT).show();
-                gpsRem = true;
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
-                // Начать проверку
-
+                timeChecker.startChecking(); // Начать проверку
                 // Когда нужно остановить проверку:
                 // trueChecker.stopChecking();
             } else
                 Snackbar.make(container, R.string.fill_fields, BaseTransientBottomBar.LENGTH_SHORT).show();
+        });
+        binding.time.setOnClickListener(v -> {
+            Message = binding.Name.getText().toString();
+            findNavController(requireView()).navigate(R.id.action_navigation_notifications_to_getTime);
         });
         binding.time.setOnClickListener(v -> {
             Message = binding.Name.getText().toString();
